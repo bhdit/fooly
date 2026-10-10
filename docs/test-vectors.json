@@ -1,0 +1,33 @@
+{
+  "protocol": "fooly v1 (HKDF info \"fooly-v1\")",
+  "note": "Published TEST keys. Never use them for anything but checking an implementation.",
+  "keys": {
+    "tv_private_jwk": {
+      "d": "wkqG8Ik1k1LKirlvm765U48mWz7GH6n0Huxyx5J2Ng8",
+      "x": "ARzPVJ8wCc2jheTbTyy9BDQLJhHOgzoVS2jyBPRJ2XA",
+      "y": "vnewottXNTWP4tOrqx9EqKbtgp6Ig-NURk6_nmOpsgY"
+    },
+    "tv_public_key_b64u": "BAEcz1SfMAnNo4Xk208svQQ0CyYRzoM6FUto8gT0SdlwvnewottXNTWP4tOrqx9EqKbtgp6Ig-NURk6_nmOpsgY",
+    "phone_ephemeral_private_jwk": {
+      "d": "3oPM77oQVhqTlbxa3HH__9dRqtjtoWsiOHDt2Grnywk",
+      "x": "fb1RbbOYWq_bTnURSoisoZO4igf87CT5UgvPJT9KSS8",
+      "y": "jKEVuVeQJretZlyjmiqXQLQqdFQ1uZfHP4WOxYhiUl4"
+    },
+    "phone_ephemeral_public_key_b64u": "BH29UW2zmFqv2051EUqIrKGTuIoH_Owk-VILzyU_SkkvjKEVuVeQJretZlyjmiqXQLQqdFQ1uZfHP4WOxYhiUl4"
+  },
+  "inputs": {
+    "session_id": "TESTVECTORsessionID_01",
+    "iv_hex": "000102030405060708090a0b",
+    "plaintext_json": "{\"username\":\"tv-user\",\"password\":\"pässwörd ✓ ăîșț\"}"
+  },
+  "expected": {
+    "shared_secret_hex": "4f3176666df734e2fb22adfee472a102316aa0b110aec6eafeaa4f25f2635f3f",
+    "aes_key_hex": "a2715ae3d0b9784940f7cdc93449ebfd4c9429c0db563f34597c8aa678aeee96",
+    "ciphertext_and_tag_hex": "58db456cddaaed584d638d4112e3afe61efd62e6f83724aeac41dfef33e1037f357e46e14d23fdbf505295d35afa555e140df09f389836e8ec6041f934a782f161f6df34afad3320221d33",
+    "payload": {
+      "epk": "BH29UW2zmFqv2051EUqIrKGTuIoH_Owk-VILzyU_SkkvjKEVuVeQJretZlyjmiqXQLQqdFQ1uZfHP4WOxYhiUl4",
+      "iv": "AAECAwQFBgcICQoL",
+      "ct": "WNtFbN2q7VhNY41BEuOv5h79Yub4NySurEHf7zPhA381fkbhTSP9v1BSldNa-lVeFA3wnziYNujsYEH5NKeC8WH23zSvrTMgIh0z"
+    }
+  }
+}

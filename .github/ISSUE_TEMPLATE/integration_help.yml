@@ -1,0 +1,31 @@
+name: Integration help
+description: A question about adding Fooly to your TV app.
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a look at the [integration guide](https://fooly.bhdit.com/docs/) first: every step is shown for JavaScript, Swift, Kotlin and HTTP.
+        **Never paste** typed values, a `poll_secret` or private keys.
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client
+      options:
+        - JavaScript SDK
+        - Swift client
+        - Kotlin client
+        - HTTP / my own port
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: TV platform
+      placeholder: e.g. LG webOS 23, Fire TV Stick 4K
+  - type: textarea
+    id: question
+    attributes:
+      label: What are you trying to do, and where are you stuck?
+    validations:
+      required: true

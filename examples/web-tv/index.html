@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- A complete Fooly TV screen in one page: QR code, fallback code, the received values.
+     Serve this folder over http(s) (ES modules don't load from file://), e.g.:
+       npx serve examples/web-tv     then open http://localhost:3000/?pk=pk_your_key -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fooly web TV example</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b1020; color: #f2f5fb; font: 18px/1.4 system-ui, sans-serif; }
+    main { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center; padding: 3rem; max-width: 60rem; }
+    canvas { background: #fff; padding: 12px; border-radius: 10px; image-rendering: pixelated; width: 16rem; height: 16rem; }
+    #status { font-size: 2rem; font-weight: 700; margin: 0 0 .5rem; }
+    #code { font-size: 2.6rem; letter-spacing: .16em; margin: 0; }
+    #hint, #result { color: #a9b4cc; }
+  </style>
+</head>
+<body>
+  <main>
+    <canvas id="qr" width="1" height="1" aria-label="QR code"></canvas>
+    <div>
+      <p id="status">Starting…</p>
+      <p id="code"></p>
+      <p id="hint"></p>
+      <pre id="result"></pre>
+    </div>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

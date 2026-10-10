@@ -1,0 +1,20 @@
+name: Feature idea
+description: Something Fooly should do that it doesn't yet, like a new platform, field type or SDK.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve?
+      description: Describe the situation in your TV app, not just the feature.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to happen?
+  - type: input
+    id: platform
+    attributes:
+      label: Platforms it matters for
+      placeholder: e.g. Roku, Samsung Tizen
