@@ -431,8 +431,8 @@ export class Session {
 }
 
 export class Fooly {
-  constructor({ publishableKey, apiBase, fetch: fetchImpl }) {
-    if (!publishableKey || !apiBase) throw new Error('publishableKey and apiBase are required');
+  constructor({ publishableKey, apiBase = 'https://fooly.bhdit.com/api', fetch: fetchImpl }) {
+    if (!publishableKey) throw new Error('publishableKey is required');
     this.publishableKey = publishableKey;
     this.apiBase = apiBase.replace(/\/$/, '');
     this._fetch = fetchImpl || ((...a) => globalThis.fetch(...a));
