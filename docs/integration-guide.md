@@ -924,4 +924,6 @@ The JavaScript SDK and the Swift client are both checked against this file on ev
 
 ## Contact
 
-Questions, verification, higher limits, or a page that looks like phishing: [fooly@bhdit.com](mailto:fooly@bhdit.com).
+- **Bugs, integration questions and ideas:** [open an issue on GitHub](https://github.com/bhdit/fooly/issues/new/choose). The client libraries, this guide and the test vectors are also there: [github.com/bhdit/fooly](https://github.com/bhdit/fooly).
+- **Verification, higher limits, your account, or a page that looks like phishing:** [fooly@bhdit.com](mailto:fooly@bhdit.com).
+- **Security problems:** [fooly@bhdit.com](mailto:fooly@bhdit.com), not a public issue.
