@@ -855,7 +855,8 @@ Set `autocomplete` correctly: phone password managers then fill the form for the
 |---|---|---|
 | 400 | `invalid_body`, `invalid_fields`, `too_many_fields`, `invalid_public_key` | Your request is wrong; `message` says how |
 | 401 | `invalid_key` | Missing, malformed or unknown publishable key (also after the app is deleted) |
-| 402 | `quota_exceeded` | This month's session limit is used up |
+| 402 | `quota_exceeded` | This month's session limit is used up (sessions count when someone scans the code) |
+| 402 | `code_limit` | Too many codes generated this month without being scanned. Create a code only when someone is about to use it |
 | 403 | `app_suspended` | The app was suspended, usually after abuse reports |
 | 429 | `rate_limited` | Too many requests; back off |
 | 503 | `busy` | Try again |
@@ -874,14 +875,14 @@ Show the person a friendly "Couldn't start, try again" and log the `error` code 
 
 1. See it work first: open **https://fooly.bhdit.com/demo/** on a computer and scan the code with your phone. No key or account needed.
 2. Then try your own app: `https://fooly.bhdit.com/demo/?pk=<your key>` runs the same pretend TV with your key, so your phone shows your app's name and fields.
-3. Run your own TV app the same way. Sessions you create while testing count toward your monthly quota.
+3. Run your own TV app the same way. Only sessions someone actually scans count toward your monthly limit, so codes you generate and abandon while testing are free.
 4. For a port to a new platform, or after changing a client, pass the [test vectors](#test-vectors) first, then do a live round trip.
 
 ## Before you go live
 
 - **Name and logo.** People decide whether to trust the page by your app's name, so make it match your TV app exactly. Logos must be `https://` URLs.
 - **Verification** removes the caution note. It's manual during early access: email [fooly@bhdit.com](mailto:fooly@bhdit.com) from your account's address with your app's name.
-- **Limits.** The default is 200 sessions a month and 4 fields per session. Email [fooly@bhdit.com](mailto:fooly@bhdit.com) before launch if you need more.
+- **Limits.** The default is 200 sessions a month and 4 fields per session. A session counts when someone scans its code (or types its fallback code); codes nobody scans don't count. To keep a published key from flooding the service, an app can generate up to 25 codes per session of its limit each month (5,000 for the default). Email [fooly@bhdit.com](mailto:fooly@bhdit.com) before launch if you need more.
 - **Handle every outcome.** Expired, consumed, failed decryption and network loss should all lead back to a fresh QR code, never to a dead end.
 - **Privacy.** Never log the values, the poll secret or the private key. Mention in your privacy policy that values typed on the phone pass through Fooly, end-to-end encrypted.
 
@@ -911,6 +912,8 @@ Protocol **v1**. Base URL: `https://fooly.bhdit.com/api`. All responses are JSON
 | `GET /health` | none | `{"ok":true}` |
 
 The phone-side endpoints (`/public/*`) are used by Fooly's own phone page and are not part of the integration surface.
+
+**Monthly limit:** counts sessions someone started by scanning the code, not codes generated. Generated codes have their own cap of 25 per session of the limit.
 
 **Limits per client and app:** 30 session creations a minute per network address and 120 per app; failed polls 30 a minute per address (valid polls are not limited). Sessions last 60 to 600 seconds (`ttl_seconds`, default 300). After a submission the TV has at least 60 more seconds to collect it.
 
