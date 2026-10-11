@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Thanks for reporting. **Never paste** what a person typed, a `poll_secret`, private keys or anyone's personal data. Publishable keys (`pk_…`) are fine.
-        Security problems go to fooly@bhdit.com instead (see SECURITY.md).
+        Security problems are reported privately instead (see SECURITY.md).
   - type: dropdown
     id: client
     attributes:

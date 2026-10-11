@@ -2,10 +2,10 @@ blank_issues_enabled: false
 contact_links:
   - name: Security problem
     url: https://github.com/bhdit/fooly/blob/main/SECURITY.md
-    about: Please report vulnerabilities privately by email, not as an issue.
+    about: Please report vulnerabilities privately, not as an issue.
   - name: Verification, limits or your account
-    url: https://fooly.bhdit.com/docs/#contact
-    about: Email fooly@bhdit.com.
+    url: https://fooly.bhdit.com/contact/
+    about: Use the contact form on the website.
   - name: Integration guide
     url: https://fooly.bhdit.com/docs/
     about: Every step for JavaScript, Swift, Kotlin and HTTP, side by side.

@@ -845,7 +845,7 @@ Each field is an object. Only `name` is required.
 | `maxLength` | 1 to 512 | 256 |
 | `autocomplete` | `off`, `username`, `email`, `current-password`, `new-password`, `one-time-code`, `name`, `url`, `tel` | `current-password` for passwords, `email`, `tel` and `url` for those types, otherwise `off` |
 
-Apps can ask for up to **4 fields** per session (more on request at [fooly@bhdit.com](mailto:fooly@bhdit.com)). Every value comes back as a **string**, including `number` fields, so convert and validate in your app.
+Apps can ask for up to **4 fields** per session (more on request through the [contact form](https://fooly.bhdit.com/contact/?topic=limits)). Every value comes back as a **string**, including `number` fields, so convert and validate in your app.
 
 Set `autocomplete` correctly: phone password managers then fill the form for the person, which is often faster than typing.
 
@@ -881,8 +881,8 @@ Show the person a friendly "Couldn't start, try again" and log the `error` code 
 ## Before you go live
 
 - **Name and logo.** People decide whether to trust the page by your app's name, so make it match your TV app exactly. Logos must be `https://` URLs.
-- **Verification** removes the caution note. It's manual during early access: email [fooly@bhdit.com](mailto:fooly@bhdit.com) from your account's address with your app's name.
-- **Limits.** The default is 200 sessions a month and 4 fields per session. A session counts when someone scans its code (or types its fallback code); codes nobody scans don't count. To keep a published key from flooding the service, an app can generate up to 25 codes per session of its limit each month (5,000 for the default). Email [fooly@bhdit.com](mailto:fooly@bhdit.com) before launch if you need more.
+- **Verification** removes the caution note. It's manual during early access: send your app's name through the [contact form](https://fooly.bhdit.com/contact/?topic=verify), with the email address you sign in with.
+- **Limits.** The default is 200 sessions a month and 4 fields per session. A session counts when someone scans its code (or types its fallback code); codes nobody scans don't count. To keep a published key from flooding the service, an app can generate up to 25 codes per session of its limit each month (5,000 for the default). [Ask us](https://fooly.bhdit.com/contact/?topic=limits) before launch if you need more.
 - **Handle every outcome.** Expired, consumed, failed decryption and network loss should all lead back to a fresh QR code, never to a dead end.
 - **Privacy.** Never log the values, the poll secret or the private key. Mention in your privacy policy that values typed on the phone pass through Fooly, end-to-end encrypted.
 
@@ -928,5 +928,5 @@ The JavaScript SDK and the Swift client are both checked against this file on ev
 ## Contact
 
 - **Bugs, integration questions and ideas:** [open an issue on GitHub](https://github.com/bhdit/fooly/issues/new/choose). The client libraries, this guide and the test vectors are also there: [github.com/bhdit/fooly](https://github.com/bhdit/fooly).
-- **Verification, higher limits, your account, or a page that looks like phishing:** [fooly@bhdit.com](mailto:fooly@bhdit.com).
-- **Security problems:** [fooly@bhdit.com](mailto:fooly@bhdit.com), not a public issue.
+- **Verification, higher limits, your account, or a page that looks like phishing:** the [contact form](https://fooly.bhdit.com/contact/).
+- **Security problems:** privately, through the [contact form](https://fooly.bhdit.com/contact/?topic=security) or [GitHub's private reporting](https://github.com/bhdit/fooly/security/advisories/new), not a public issue.

@@ -8,7 +8,7 @@ Thanks for helping make TV apps less painful to set up.
 
 **Never paste** what a person typed, a `poll_secret`, private keys or any user's data into an issue. Publishable keys (`pk_…`) are fine.
 
-Security problems go to **fooly@bhdit.com**, not issues. See [SECURITY.md](SECURITY.md).
+Security problems are reported privately, not as issues. See [SECURITY.md](SECURITY.md).
 
 ## Pull requests
 

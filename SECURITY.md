@@ -4,7 +4,7 @@ Fooly carries passwords and other secrets from a phone to a TV, so we take repor
 
 ## Reporting a vulnerability
 
-**Please don't open a public issue.** Email **fooly@bhdit.com** with:
+**Please don't open a public issue.** Report it privately, either with [GitHub's private vulnerability reporting](https://github.com/bhdit/fooly/security/advisories/new) or through the [contact form](https://fooly.bhdit.com/contact/?topic=security) (pick "Security problem"), with:
 
 - what you found and where (SDK, protocol, the hosted service at fooly.bhdit.com),
 - steps to reproduce, and what an attacker could do with it,

@@ -65,8 +65,8 @@ The guide is written to be followed by an AI assistant as well as a person: a pl
 ## Help and issues
 
 - **A bug, an integration question or an idea:** [open an issue](https://github.com/bhdit/fooly/issues/new/choose).
-- **A security problem:** please don't open an issue. Email **fooly@bhdit.com**, see [SECURITY.md](SECURITY.md).
-- **Verification, higher limits, your account:** email **fooly@bhdit.com**.
+- **A security problem:** please don't open an issue. Report it privately, see [SECURITY.md](SECURITY.md).
+- **Verification, higher limits, your account:** the [contact form](https://fooly.bhdit.com/contact/).
 
 ## What's in this repository
 
