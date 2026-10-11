@@ -1,8 +1,10 @@
 # Fooly
 
-**Let people type on their phone instead of with a TV remote.**
+**Remote typing for TV apps: ask for any fields, people fill them in on their phone.**
 
-Fooly is QR-code text input for Smart TV apps. Your TV app shows a QR code, the person scans it with their phone, types what your app asked for (a username and password, a Wi-Fi password, a server or playlist URL, a search), and your app receives it a few seconds later. Everything typed is **end-to-end encrypted** on the phone for your TV, so Fooly's servers only ever see ciphertext.
+Fooly is remote typing for Smart TV apps. Your app asks for **any fields it needs** (a username and password, a Wi-Fi password, a server or playlist URL, a search), shows a QR code, and the person fills those fields in on their phone. Your app receives the values a few seconds later. It takes a few lines of code.
+
+It's **end-to-end encrypted**: each session, your TV app creates a key pair and keeps the private key to itself. The QR code carries the public key to the phone, which encrypts what's typed with it. Fooly only relays the encrypted result, once, then deletes it. Only the TV can read it.
 
 **[Try the live demo](https://fooly.bhdit.com/demo/)** · **[Integration guide](https://fooly.bhdit.com/docs/)** · **[Get an app key](https://fooly.bhdit.com/dashboard/)** · **[Report an issue](https://github.com/bhdit/fooly/issues/new/choose)**
 
@@ -11,7 +13,7 @@ Fooly is QR-code text input for Smart TV apps. Your TV app shows a QR code, the 
 Typing a password with a remote control, one letter at a time on an on-screen keyboard, is the worst part of setting up a TV app. People give up. Fooly turns it into the same thing they already do every day: scan a code, type on a real keyboard, done. Phone password managers can fill the form for them.
 
 - **Any fields, not just sign-in.** Unlike the OAuth device flow, which only signs a person in, Fooly delivers whatever your app needs: credentials, server addresses, Wi-Fi details, IPTV playlist URLs, a search term.
-- **End-to-end encrypted.** The phone encrypts for a key that never leaves the TV (P-256 ECDH, HKDF-SHA256, AES-256-GCM). The server stores ciphertext only and deletes it the moment your TV collects it.
+- **End-to-end encrypted.** The TV app's private key never leaves the TV; the phone encrypts with its public key (P-256 ECDH, HKDF-SHA256, AES-256-GCM). The server stores the encrypted result only and deletes it the moment your TV collects it.
 - **No app on the phone.** It's a web page. Nothing to install.
 - **Fallback code.** People who can't scan type a short code on any device.
 - **Built against phishing.** The phone always shows your app's name. Unverified apps carry a caution note, and every page has a report button.
@@ -49,9 +51,9 @@ Swift and Kotlin look the same. See the [integration guide](https://fooly.bhdit.
 
 ## How it works
 
-1. Your TV app makes a key pair and asks Fooly for a session, listing the fields it needs.
+1. Your TV app makes a key pair, keeps the private key, and asks Fooly for a session listing the fields it needs.
 2. It shows the QR code. The TV's public key rides in the URL fragment, which browsers never send to a server.
-3. The phone opens the page, shows your app's name and the fields, encrypts what's typed for the TV's key, and sends only ciphertext.
+3. The phone opens the page, shows your app's name and the fields, encrypts what's typed with the TV's public key, and sends only the encrypted result.
 4. Your TV collects the ciphertext once and decrypts it locally.
 
 The full protocol, with every byte spelled out, is in the [guide](docs/integration-guide.md#the-protocol-in-detail).

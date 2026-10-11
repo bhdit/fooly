@@ -1,9 +1,9 @@
 <!-- Published from the Fooly codebase. Found a mistake? Open an issue: https://github.com/bhdit/fooly/issues/new/choose -->
 # Fooly integration guide
 
-Fooly lets people type on their phone instead of with a TV remote. Your TV app shows a QR code, the person scans it, fills in the fields you asked for (a username, a password, a server address…), and your app receives the values a few seconds later.
+Fooly is remote typing for TV apps. Your app asks for any fields it needs, like a username and password, a server address or a playlist link. It shows a QR code, the person scans it and fills those fields in on their phone, and your app receives the values a few seconds later.
 
-What's typed is encrypted on the phone for your TV's key, so Fooly's servers only ever see ciphertext.
+Each session, your TV app creates a key pair and keeps the private key to itself. The QR code carries the public key to the phone, which encrypts what's typed with it. Fooly only relays the encrypted result, once, then deletes it. Only the TV can read it.
 
 This guide takes you from zero to a working integration. It's written so you can follow it yourself or hand it to an AI coding assistant.
 
